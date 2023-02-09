@@ -1,5 +1,5 @@
 cd BlessedGreens  
 
-ng build --base-href "https://tretyakovalex.github.io/blessedgreens/"
+ng build --aot --base-href "https://tretyakovalex.github.io/BlessedGreens/"
 
-ngh --dir dist/BlessedGreens
+ngh --dir dist/blessed-greens
