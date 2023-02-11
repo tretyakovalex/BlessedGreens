@@ -12,11 +12,12 @@ const errorController = require('./controllers/error');
 const PORT = 8080;
 
 // app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+
 app.use(express.json());
 
-const userRouter = require('./routes/userRouter');
-app.use('/', userRouter);
+// const userRouter = require('./routes/userRouter');
+// app.use('/', userRouter);
 
 // app.post('/api/signup', async (req, res) => {
 //     const user = req.body[0];
@@ -35,13 +36,13 @@ app.use('/', userRouter);
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, X-Custome-Header, Authorization');
-    if(req.method === 'OPTIONS'){
-        return res.status(200).end();
+    res.setHeader('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers','Content-Type, Accept, X-Custom-Header, Authorization');
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
     }
     next();
-});
+  });
 
 app.use('/auth', authRoutes);
 

@@ -48,7 +48,6 @@ exports.login = async (req, res, next) => {
       }
   
       const storedUser = user[0][0];
-      console.log(storedUser);
   
       const isEqual = await bcrypt.compare(password, storedUser.password);
   
